@@ -1,9 +1,10 @@
 
 type Result = {
     id: number;
+    title: string;
     original_title: string;
+};
 
-}
 type ResultsProps = {
     results: Result[]; // Adjust the type according to the actual structure of your results
   };
