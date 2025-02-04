@@ -1,8 +1,16 @@
+import Card from "./Card";
 
-type Result = {
+export type Result = {
     id: number;
     title: string;
+    name: string;
     original_title: string;
+    release_date: string;
+    first_air_date: string;
+    vote_count: number;
+    backdrop_path: string;
+    poster_path: string;
+    overview: string;
 };
 
 type ResultsProps = {
@@ -11,12 +19,9 @@ type ResultsProps = {
 
 const Results = ({ results }: ResultsProps) => {
   return (
-    <div className='grid grid-cols-1 justify-center gap-4 md:grid-cols-2 lg:grid-cols-3'>
+    <div className='sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 max-w-6xl py-4 mx-auto'>
         {results.map((result) => (
-            <div key={result.id}>
-                <h2>{result.original_title}</h2>
-            </div>
-            
+            <Card key={result.id} result={result}/>
         ))}
     </div>
   )

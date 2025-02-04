@@ -16,6 +16,7 @@ const Home = async ({ searchParams }: HomeProps) => {
       genre === 'fetchTopRated' ? `/movie/top_rated` : `/trending/all/week`
     }?api_key=${API_KEY}&language=en-US&page=1`
 
+
   const res = await fetch(URL_API,{ cache: "no-store" });
   if (!res.ok) {
     throw new Error("Failed to fetch data")
