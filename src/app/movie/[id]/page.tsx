@@ -12,7 +12,7 @@ const MoviePage = async ({ params }: MoviePageProps) => {
     );
 
     if (!res.ok) {
-      notFound();
+      return notFound();
     }
     const movie = await res.json();
 

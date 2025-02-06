@@ -5,6 +5,8 @@ import Header from "@/components/Header";
 import Providers from "./providers";
 import Navbar from "@/components/Navbar";
 import SearchBox from "@/components/SearchBox";
+import { Suspense } from "react";
+import Loading from "./loading";
 
 
 const geistSans = Geist({
@@ -36,7 +38,9 @@ export default function RootLayout({
           <Header />
           <Navbar />
           <SearchBox />
-          {children}
+          <Suspense fallback={<Loading />}>
+            {children}
+          </Suspense>
         </Providers>
       </body>
     </html>
