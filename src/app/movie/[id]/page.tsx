@@ -1,13 +1,11 @@
 import Image from "next/image";
 
 type MoviePageProps = {
-    params: {
-        id: string;
-    }
+    params: Promise<{ id: string }>;
 }
 
 const MoviePage = async ({ params }: MoviePageProps) => {
-    const movieId = (await params).id;
+    const { id: movieId } = await params;
     const res = await fetch(
         `https://api.themoviedb.org/3/movie/${movieId}?api_key=${process.env.API_KEY}`
     );
